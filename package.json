@@ -1,0 +1,23 @@
+{
+	"name": "current-facts",
+	"version": "1.0.0",
+	"description": "",
+	"main": "current-facts.js",
+	"scripts": {
+		"test": "mocha --ui tdd || exit 0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/raul-f/current-facts.git"
+	},
+	"keywords": [],
+	"author": "raul-f <raulf.dev@gmail.com> (https://raul-f.glitch.me/)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/raul-f/current-facts/issues"
+	},
+	"homepage": "https://github.com/raul-f/current-facts#readme",
+	"devDependencies": {
+		"chai": "^4.2.0"
+	}
+}
