@@ -20,32 +20,40 @@ Como é comum em um modelo de entidades, os atributos de uma entidade pode ter c
 Segue um exemplo de fatos no formato de tuplas `(E, A, V, added?)`
 i.e. `[entidade, atributo, valor, booleano (indica se fato foi adicionado ou retraido)]`
 
-`var facts = [ 
-	['gabriel', 'endereço', 'av rio branco, 109', true], 
-	['joão', 'endereço', 'rua alice, 10', true], 
-	['joão', 'endereço', 'rua bob, 88', true], 
-	['joão', 'telefone', '234-5678', true], 
-	['joão', 'telefone', '91234-5555', true], 
-	['joão', 'telefone', '234-5678', false], 
-	['gabriel', 'telefone', '98888-1111', true], 
-	['gabriel', 'telefone', '56789-1010', true], 
-]`
+```
+var facts = [
+	['gabriel', 'endereço', 'av rio branco, 109', true],
+	['joão', 'endereço', 'rua alice, 10', true],
+	['joão', 'endereço', 'rua bob, 88', true],
+	['joão', 'telefone', '234-5678', true],
+	['joão', 'telefone', '91234-5555', true],
+	['joão', 'telefone', '234-5678', false],
+	['gabriel', 'telefone', '98888-1111', true],
+	['gabriel', 'telefone', '56789-1010', true],
+]
+```
 
 Vamos assumir que essa lista de fatos está ordenada dos mais antigos para os mais recentes.
 
 Nesse _schema_,
 o atributo `'telefone'` tem cardinalidade 'muitos' (_one-to-many_), e `'endereço'` é 'um' (_one-to-one_).
 
-`var schema = [ 
-	['endereço', 'cardinality', 'one'], 
-	['telefone', 'cardinality', 'many'] 
-]`
+```
+var schema = [
+	['endereço', 'cardinality', 'one'],
+	['telefone', 'cardinality', 'many']
+]
+```
 
 Nesse exemplo, os seguintes registros representam o histórico de endereços que joão já teve:
-`[ 
-	['joão', 'endereço', 'rua alice, 10', true], 
-	['joão', 'endereço', 'rua bob, 88', true], 
-]`
+
+```
+[
+  ['joão', 'endereço', 'rua alice, 10', true],
+	['joão', 'endereço', 'rua bob, 88', true],
+]
+```
+
 E o fato considerado vigente é o último.
 
 O objetivo desse desafio é escrever uma função que retorne quais são os fatos vigentes sobre essas entidades.
@@ -53,10 +61,13 @@ Ou seja, quais são as informações que estão valendo no momento atual.
 A função deve receber `facts` (todos os fatos conhecidos) e `schema` como argumentos.
 
 Resultado esperado para este exemplo (mas não precisa ser nessa ordem):
-`[ 
-	['gabriel', 'endereço', 'av rio branco, 109', true], 
-	['joão', 'endereço', 'rua bob, 88', true], 
-	['joão', 'telefone', '91234-5555', true], 
-	['gabriel', 'telefone', '98888-1111', true], 
-	['gabriel', 'telefone', '56789-1010', true] 
-]`
+
+```
+[
+	['gabriel', 'endereço', 'av rio branco, 109', true],
+	['joão', 'endereço', 'rua bob, 88', true],
+	['joão', 'telefone', '91234-5555', true],
+	['gabriel', 'telefone', '98888-1111', true],
+	['gabriel', 'telefone', '56789-1010', true]
+]
+```
